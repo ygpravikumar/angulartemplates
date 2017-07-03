@@ -19,4 +19,12 @@
             color: #222;
             border-color: #222;
         }
+
+        .progress-job{
+            height:30px;
+        }
+
+        .progress-bar-job{
+            line-height:30px;
+        }
         

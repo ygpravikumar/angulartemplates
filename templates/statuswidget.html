@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Job Status widget</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/styles.css" rel="stylesheet">
+    <script src="../bundle.js"></script>
+</head>
+
+<body ng-app="statusapp">
+    <div ng-controller="statusctrl">
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="" class="col-sm-2 checkbox">Progress Status:</label>
+                    <div class="col-sm-10">
+                        <div class="radio text-success">
+                            <label><input type="radio" name="Radios" value="success" ng-model="progressclass">Success</label>
+                        </div>
+                        <div class="radio text-info">
+                            <label><input type="radio" name="Radios" value="info"  ng-model="progressclass">info</label>
+                        </div>
+                        <div class="radio text-warning">
+                            <label><input type="radio" name="Radios" value="warning" ng-model="progressclass">warning</label>
+                        </div>
+                        <div class="radio text-danger">
+                            <label><input type="radio" name="Radios" value="danger" ng-model="progressclass">danger</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="radios" class="col-sm-2 form-control-static">Progress Bar :</label>
+                    <div class="col-sm-10">
+                        <label class="radio-inline"><input type="radio" name="Radios2" value="true" ng-model="shoprogressbar">Show</label>
+                        <label class="radio-inline"><input type="radio" name="Radios2" value="false" ng-model="shoprogressbar">Hide</label>
+                    </div>
+                </div>
+            </form>
+
+            <div class="btn-group btn-group-justified">
+                <a href="#" role="button" aria-label="Start progress bar" class="btn btn-default btn-sm" ng-click="startprogress()"> Start </a>
+                <a href="#" role="button" aria-label="Stop progress bar" class="btn btn-default btn-sm" ng-click="stopprogress()"> Stop </a>
+                <a href="#" role="button" aria-label="Reset progress bar" class="btn btn-default btn-sm" ng-click="resetprogress()"> Reset </a>
+            </div>
+        </div>
+        <hr>
+        <div class="container" ng-show="shoprogressbar">
+            <h3 class="text-info">Job Status</h3>
+            <div class="progress progress-job">
+                <div class="progress-bar progress-bar-job progress-bar-striped progress-bar-{{progressclass}} active" role="progressbar"
+                    aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100" ng-min="0" ng-max="100" style="width:{{progress}}%">
+                    <span class="">{{progress}}% Complete</span>
+                </div>
+            </div>
+            <div class="btn-group btn-group-justified">
+                <a href="#" role="button" aria-label="Show Log" class="btn btn-default btn-sm" ng-click="showLog()"> Show Log </a>
+                <a href="#" role="button" aria-label="Stop progress bar" class="btn btn-default btn-sm" ng-click="stopprogress()"> Stop </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
